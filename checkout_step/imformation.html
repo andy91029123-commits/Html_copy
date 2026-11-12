@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <language="zh-hant">
+        <title>結帳流程</title>
+
+        <style>
+            /* http://meyerweb.com/eric/tools/css/reset/    v2.0 | 20110126   License: none (public domain)*/
+
+            html,
+            body,
+            div,
+            span,
+            applet,
+            object,
+            iframe,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            p,
+            blockquote,
+            pre,
+            a,
+            abbr,
+            acronym,
+            address,
+            big,
+            cite,
+            code,
+            del,
+            dfn,
+            em,
+            img,
+            ins,
+            kbd,
+            q,
+            s,
+            samp,
+            small,
+            strike,
+            strong,
+            sub,
+            sup,
+            tt,
+            var,
+            b,
+            u,
+            i,
+            center,
+            dl,
+            dt,
+            dd,
+            ol,
+            ul,
+            li,
+            fieldset,
+            form,
+            label,
+            legend,
+            table,
+            caption,
+            tbody,
+            tfoot,
+            thead,
+            tr,
+            th,
+            td,
+            article,
+            aside,
+            canvas,
+            details,
+            embed,
+            figure,
+            figcaption,
+            footer,
+            header,
+            hgroup,
+            menu,
+            nav,
+            output,
+            ruby,
+            section,
+            summary,
+            time,
+            mark,
+            audio,
+            video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+
+            /* HTML5 display-role reset for older browsers */
+            article,
+            aside,
+            details,
+            figcaption,
+            figure,
+            footer,
+            header,
+            hgroup,
+            menu,
+            nav,
+            section {
+                display: block;
+            }
+
+            body {
+                line-height: 1;
+            }
+
+            ol,
+            ul {
+                list-style: none;
+            }
+
+            blockquote,
+            q {
+                quotes: none;
+            }
+
+            blockquote:before,
+            blockquote:after,
+            q:before,
+            q:after {
+                content: '';
+                content: none;
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+            /* 以上是CSS Reset */
+            * {
+                font-family: "noto sans tc";
+            }
+
+            header {
+                width: 100%;
+                /* height: 178px; */
+                background-color: #A81515;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 64px 0;
+            }
+
+            h1 {
+                color: white;
+                font-size: 40px;
+                font-weight: bold;
+                /* letter-spacing: 200%;*/
+
+                display: flex;
+                justify-content: space-between;
+                width: 160px;
+                height: 48px;
+                border-bottom: 4px solid white;
+
+            }
+
+            h2 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+
+            /* step */
+
+            ul {
+                width: 428px;
+                /* display: flex;
+                justify-content: center;
+                align-items: center; */
+            }
+
+            li {
+                font-size: 40px;
+                font-weight: bold;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+
+            li>p {
+                font-size: 20px;
+            }
+
+
+
+            .indicator-active {
+                width: 100px;
+                height: 22px;
+                border-radius: 22px;
+                background-color: #A81515;
+            }
+
+            .indicator {
+                width: 100px;
+                height: 22px;
+                border-radius: 22px;
+                background-color: #999;
+            }
+
+            .ordersum {
+                width: 800px;
+                /* height: 200px; */
+                font-size: 20px;
+                background-color: #FFA4A4;
+                margin: 0 auto;
+                border-radius: 16px 16px 0 0;
+                padding: 36px 60px;
+            }
+
+            .itemChk {
+                width: 100%;
+
+            }
+
+            .item {
+                width: 388px;
+            }
+
+            .equalHr {
+                width: 100%;
+                height: 6px;
+                border-bottom: 2px solid #000;
+                border-right: 2px solid #000;
+            }
+
+            /* flex */
+            .flex {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+
+            .flexDcol {
+                flex-direction: column;
+            }
+
+            .flexJcstart {
+                justify-content: flex-start;
+            }
+
+            .flexJcend {
+                justify-content: flex-end;
+            }
+
+            .flexJcsb {
+                justify-content: space-between;
+            }
+
+            .flexAistart {
+                align-items: flex-start;
+            }
+
+            .flexAisend {
+                align-items: flex-end;
+            }
+
+            .flexAsstart {
+                align-self: flex-end;
+            }
+
+            .md64 {
+                margin-bottom: 64px;
+            }
+
+            .op5 {
+                opacity: 0.5;
+            }
+
+            .w100 {
+                width: 100%;
+            }
+
+            .g12 {
+                gap: 12px;
+            }
+
+            .g40 {
+                gap: 40px;
+            }
+        </style>
+</head>
+
+
+<body>
+    <header class="header md64">
+        <h1>
+            <p>結</p>
+            <p>帳</p>
+        </h1>
+
+    </header>
+    <div class="step flex md64">
+        <ul class="flex flexJcsb">
+            <li>
+                <div>1</div>
+                <div class="indicator-active"></div>
+                <p>個人資料</p>
+            </li>
+            <li class="op5">
+                <div>2</div>
+                <div class="indicator"></div>
+                <p>付款資料</p>
+            </li>
+            <li class="op5">
+                <div>3</div>
+                <div class="indicator"></div>
+                <p>訂購完成</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="ordersum flex flexDcol flexAistart flexJcsb g40 mb64">
+        <h2>購物艙裡的品項如下</h2>
+        <div class="flex flexDcol w100 g12">
+            <div class="itemChk flex flexJcsb">
+                <div class="item flex flexJcsb">
+                    <p class="itemName">什麼都劈的開的電熱斧</p>
+                    <p class="itemCount">x1</p>
+                </div>
+                <p class="itemPrice">USD 1,500</p>
+            </div>
+        </div>
+        <div class="equalHr"></div>
+        <p class="itemPrice flexAsstart">USD 1,500</p>
+    </div>
+    </div>
+    <form action="" method="">
+        <label for="name">姓名</label><br><!-- br 段行 -->
+        <input type="text" name="myname" id="name"><br>
+
+        <label for="phone">電話</label><br>
+        <input type="text" name="phone" id="phone"><br>
+
+        <label for="email">電子郵件</label><br>
+        <input type="email" name="email" id="email"><br>
+
+        <label for="city">城市</label>
+        <select name="city" id="city">
+            <option value="taipei">台北市</option>
+            <option value="newtaipei">新北市</option>
+            <option value="taoyuan">桃園市</option>
+            <option value="taichun">台中市</option>
+            <option value="tainan">台南市</option>
+            <option value="kaohsiung">高雄市</option>
+        </select>
+
+        <label for="dist">區域</label>
+        <select name="dist" id="dist">
+            <option value="daann">大安區</option>
+            <option value="shilin">士林區</option>
+            <option value="wenshan">文山區</option>
+            <option value="wanwha">萬華區</option>
+            <option value="datung">大同區</option>
+            <option value="zounghan">中正區</option>
+        </select><br>
+
+
+        <label for="address">地址</label><br>
+        <input type="text" name="address" id="address"><br>
+
+        <button type="submit">下一步</button>
+
+
+
+
+    </form>
+
+
+</body>
+
+</html>

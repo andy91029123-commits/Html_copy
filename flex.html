@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container {
+        width: 300px;
+        height: 300px;
+        background-color: white;
+        border: 1px solid black;
+        position: relative;
+        left: 0px;
+        top: 0px;
+    }
+
+    .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+    }
+
+    .container2 {
+        width: 700px;
+        height: 300px;
+        background-color: white;
+        border: 1px solid black;
+        position: relative;
+        left: 0px;
+        top: 0px;
+    }
+
+    .box {
+        font-size: 20px;
+        border: 1px solid black;
+        margin-bottom: 20px;
+        position: absolute;
+
+    }
+
+    .box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        left: 0;
+        top: 0;
+    }
+
+    .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        left: 120px;
+        top: 0;
+    }
+
+    .box3 {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        left: 240px;
+        top: 0;
+    }
+
+    /* flex */
+    .flex {
+        display: flex;
+    }
+
+    .flex-center {
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .flexJcstart {
+        justify-content: start;
+    }
+
+    .flexJcend {
+        justify-content: end;
+    }
+
+    .flexDrow {
+        flex-direction: row;
+    }
+
+    .flexDrowrev {
+        flex-direction: row-reverse;
+    }
+
+
+    /* margin */
+    .mb24 {
+        margin-bottom: 24px;
+    }
+</style>
+
+<body>
+    <div class="container flex flex-center .mb24">
+        <div class="circle"></div>
+    </div>
+
+    <div class="container2 flex flex-center">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+
+
+    </div>
+
+</body>
+
+</html>

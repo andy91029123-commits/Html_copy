@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    *{
+        /* box-sizing: border-box;
+        /* 控制盒子尺寸，以邊框大小決定 */
+        /* overflow: hidden; */ 
+        /* 溢出的部分隱藏 */
+    }
+    /* 波蘭國旗 */
+.pl{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 10px auto;
+}
+.pl div{
+    /* pl以下的盒子大小 */
+    width: 450px;
+    height: 150px;
+}
+.pl_d{
+    background-color: red;
+}
+
+/* 比利時國旗 */
+.bel{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 10px auto;
+}
+.bel div{
+    width: 150px;
+    height: 300px;
+}
+
+.bel_1{    
+    display: inline-block;
+    background-color: #000;
+}
+.bel_2{   
+    display: inline-block;
+    background-color: #ffe936;
+}
+.bel_3{  
+    display: inline-block;
+    background-color: #ff0f21;
+}
+
+/* england */
+.eng{
+    width: 800px;
+    height: 480px;
+    border: 1px solid black;
+    background-color: red;
+    margin: 10px auto;
+    position: relative;
+}
+.eng div {
+    position: absolute;
+    width: 350px;
+    height: 192px;
+    background-color: white;
+}
+
+.eng_01{
+    top: 0px;
+    left: 0px;
+    }
+.eng_02{
+    top: 0px;
+    right: 0px;
+    
+}
+.eng_03{
+    bottom: 0px;
+    left: 0px;
+}
+.eng_04{
+    bottom: 0px;
+    right: 0px;
+}
+
+/* czech */
+.czech{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 0 auto 30px auto;
+    position: relative;
+}
+.czech div{
+    position: absolute;
+}
+.czech_t{
+    width: 225px;
+    height: 300px;
+    background-color: #11457e;
+    clip-path: polygon(0% 100%,100% 50%,0% 0%);
+    left: 0px;
+}
+
+.czech_u{
+    width: 450px;
+    height: 150px;
+    background-color: white;
+    top: 0px;
+}
+
+.czech_d{
+    width: 450px;
+    height: 150px;
+    background-color: #d7141a;
+    bottom: 0px;
+}
+/* japan */
+.jap{
+    width: 450px;
+    height: 300px;
+    background-color: white;
+    border: 1px solid black;
+    margin: 0 auto 30px auto;
+    position: relative;
+}
+.jap_circle{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(188,0,45);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+</style>
+</head>
+
+<body>
+    <div class="pl">
+        <div class="pl_u"></div>
+        <div class="pl_d"></div>
+    </div> 
+
+    <div class="bel">
+        <div class="bel_1"></div><div class="bel_2"></div><div class="bel_3"></div>
+    </div>
+
+    <div class="eng">
+        <div class=" eng_01"></div>
+        <div class=" eng_02"></div>
+        <div class=" eng_03"></div>
+        <div class=" eng_04"></div>        
+    </div>
+
+    <div class="czech">
+        
+        <div class="czech_u"></div>
+        <div class="czech_d"></div>
+        <div class="czech_t"></div>
+    </div>
+
+    <div class="jap">
+        <div class="jap_circle"></div>
+    </div>
+
+</body>
+
+</html>

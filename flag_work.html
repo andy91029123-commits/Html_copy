@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+    *{
+        /* box-sizing: border-box; */
+        /* 控制盒子尺寸，以邊框大小決定 */
+        /* overflow: hidden;  */
+        /* 溢出的部分隱藏 */
+    }
+    /* 波蘭國旗 */
+.pl{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;    
+    margin: 20px auto;
+    }
+.pl_u{    
+    width: 450px;
+    height: 150px;
+    background-color: white;    
+}
+.pl_d{    
+    width: 450px;
+    height: 150px;
+    background-color: rgb(212,33,67);    
+}
+
+/* Nederland */
+.N{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;    
+    margin: 20px auto;
+    position: relative;
+}
+.N div{
+    position: absolute;
+}
+.N_u{
+    width: 450px;
+    height: 100px;
+    background-color: rgb(173,29,37);
+    top: 0px ;
+}
+.N_m{
+    width: 450px;
+    height: 100px;
+    background-color: rgb(255,255,255);
+    top: 100px;
+}
+.N_d{
+    width: 450px;
+    height: 100px;
+    background-color: rgb(30,71,133);
+    top: 200px;
+}
+/* Germany */
+.Ger{
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;    
+    margin: 20px auto;
+    position: relative;
+}
+.Ger div{
+    position: absolute;
+}
+.Ger_u{
+    width: 500px;
+    height: 100px;
+    background-color: rgb(0,0,0);
+    top: 0px ;
+}
+.Ger_m{
+    width: 500px;
+    height: 100px;
+    background-color: rgb(221,0,0);
+    top: 100px;
+}
+.Ger_d{
+    width: 500px;
+    height: 100px;
+    background-color: rgb(255,204,0);
+    top: 200px;
+}
+/* Costa-Rica */
+.Cos{
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;    
+    margin: 20px auto;
+    position: relative;
+    background-color:rgb(0,20,137);
+}
+.Cos div{
+    position: absolute;
+}
+.Ger_w{
+    width: 500px;
+    height: 200px;
+    background-color: rgb(255,255,255);
+    top: 50px ;
+}
+.Ger_r{
+    width: 500px;
+    height: 100px;
+    background-color: rgb(218,41,28);
+    top: 100px;
+}
+
+/* 比利時國旗 */
+.bel{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+.bel div{
+    width: 150px;
+    height: 300px;
+}
+.bel_1{    
+    display: inline-block;
+    background-color: #000;
+}
+.bel_2{   
+    display: inline-block;
+    background-color: #ffe936;
+}
+.bel_3{  
+    display: inline-block;
+    background-color: #ff0f21;
+}
+
+/* France */
+.Fra{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;    
+    margin: 20px auto;
+    position: relative;
+    background-color:rgb(0,38,84);
+}
+.Fra div{
+    position: absolute;
+}
+.Fra_w{
+    width: 150px;
+    height: 300px;
+    background-color: rgb(255,255,255);
+    left: 150px ;
+}
+.Fra_r{
+    width: 150px;
+    height: 300px;
+    background-color: rgb(255,0,15);
+    left: 300px;
+}
+
+/* england */
+.eng{
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    background-color: red;
+    margin: 20px auto;
+    position: relative;
+}
+.eng div {
+    position: absolute;
+    width: 220px;
+    height: 120px;
+    background-color: white;
+}
+
+.eng_01{
+    top: 0px;
+    left: 0px;
+    }
+.eng_02{
+    top: 0px;
+    right: 0px;
+    
+}
+.eng_03{
+    bottom: 0px;
+    left: 0px;
+}
+.eng_04{
+    bottom: 0px;
+    right: 0px;
+}
+
+/* Denmark */
+.Den{
+    width: 370px;
+    height: 280px;
+    border: 1px solid black;    
+    margin: 20px auto;
+    position: relative;
+    background-color:rgb(200,016,046);
+}
+.Den div{
+    position: absolute;
+}
+.Den_u{
+    width: 40px;
+    height: 280px;
+    background-color: rgb(255,255,255);
+    left: 120px ;
+}
+.Den_d{
+    width: 370px;
+    height: 40px;
+    background-color: rgb(255,255,255);
+    top: 120px;
+}
+
+/* czech */
+.czech{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px auto;
+    position: relative;
+}
+.czech div{
+    position: absolute;
+}
+.czech_t{
+    width: 225px;
+    height: 300px;
+    background-color: #11457e;
+    clip-path: polygon(0% 100%,100% 50%,0% 0%);
+    left: 0px;
+}
+
+.czech_u{
+    width: 450px;
+    height: 150px;
+    background-color: white;
+    top: 0px;
+}
+
+.czech_d{
+    width: 450px;
+    height: 150px;
+    background-color: #d7141a;
+    bottom: 0px;
+}
+
+/* japan */
+.jap{
+    width: 450px;
+    height: 300px;
+    background-color: white;
+    border: 1px solid black;
+    margin: 20px auto;
+    position: relative;
+}
+.jap_circle{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(188,0,45);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* taiwan */
+.tai{
+    width: 450px;
+    height: 300px;
+    background-color: rgb(222,0,0);
+    border: 1px solid black;
+    margin: 20px auto;
+    position: relative;
+}
+.tai_b{
+    position: absolute;
+    width: 225px;
+    height: 150px;
+    background-color: rgb(0,0,170);
+    top: 0px;
+    left: 0px;
+}
+.tai_t div {   
+    position: absolute; 
+    width: 56.25px;
+    height: 28.125px;
+    background-color: rgb(255,255,255);
+    clip-path: polygon(0% 100%,100% 50%,0% 0%);
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 50%;
+    
+} 
+.tai_1  { transform: translateY(-50%) rotate(0deg); }
+.tai_2  { transform: translateY(-50%) rotate(30deg); }
+.tai_3  { transform: translateY(-50%) rotate(60deg); }
+.tai_4  { transform: translateY(-50%) rotate(90deg); }
+.tai_5  { transform: translateY(-50%) rotate(120deg); }
+.tai_6  { transform: translateY(-50%) rotate(150deg); }
+.tai_7  { transform: translateY(-50%) rotate(180deg); }
+.tai_8  { transform: translateY(-50%) rotate(210deg); }
+.tai_9  { transform: translateY(-50%) rotate(240deg); }
+.tai_10 { transform: translateY(-50%) rotate(270deg); }
+.tai_11 { transform: translateY(-50%) rotate(300deg); }
+.tai_12 { transform: translateY(-50%) rotate(330deg); } 
+
+
+.tai_cb{
+    position: absolute;
+    width: 56.25px;
+    height: 56.25px;
+    background-color: rgb(0,0,170);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.tai_cw{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255,255,255);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+</style>
+</head>
+
+<body>
+    <!-- /* 波蘭國旗 */ -->
+    <div class="pl">
+        <div class="pl_u"></div>
+        <div class="pl_d"></div>
+    </div>
+
+    <!-- /* Nederland */ --> 
+    <div class="N">
+        <div class="N_u"></div>
+        <div class="N_m"></div>
+        <div class="N_d"></div>
+    </div>
+
+    <!-- /* Germany */ --> 
+    <div class="Ger">
+        <div class="Ger_u"></div>
+        <div class="Ger_m"></div>
+        <div class="Ger_d"></div>
+    </div>
+
+    <!-- Costa Rica -->
+    <div class="Cos">
+        <div class="Ger_w"></div>
+        <div class="Ger_r"></div>
+    </div>
+    
+    <!-- Belgium -->
+    <div class="bel">
+        <div class="bel_1"></div><div class="bel_2"></div><div class="bel_3"></div>
+    </div>
+
+    <!-- France -->
+    <div class="Fra">
+        <div class="Fra_w"></div>
+        <div class="Fra_r"></div>
+    </div>
+
+    <!-- england -->
+    <div class="eng">
+        <div class=" eng_01"></div>
+        <div class=" eng_02"></div>
+        <div class=" eng_03"></div>
+        <div class=" eng_04"></div>        
+    </div>
+
+    <!-- Denmark -->
+    <div class="Den">
+        <div class="Den_u"></div>
+        <div class="Den_d"></div>
+    </div>
+
+    <!-- czech -->
+    <div class="czech">        
+        <div class="czech_u"></div>
+        <div class="czech_d"></div>
+        <div class="czech_t"></div>
+    </div>
+
+    <!-- japan -->
+    <div class="jap">
+        <div class="jap_circle"></div>
+    </div>
+
+    <!-- taiwan-->
+    <div class="tai">        
+        <div class="tai_b">            
+            <div class="tai_t">
+                <div class="tai_1"></div>
+                <div class="tai_2"></div>
+                <div class="tai_3"></div>
+                <div class="tai_4"></div>
+                <div class="tai_5"></div>
+                <div class="tai_6"></div>
+                <div class="tai_7"></div>
+                <div class="tai_8"></div>
+                <div class="tai_9"></div>
+                <div class="tai_10"></div>
+                <div class="tai_11"></div>
+                <div class="tai_12"></div>
+            </div>        
+                <div class="tai_cb"></div>
+                <div class="tai_cw"></div>
+        </div> 
+    </div>
+
+
+</body>
+
+</html>

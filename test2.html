@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+
+
+    *{
+        /* box-sizing: border-box;
+        overflow: hidden; */
+    }
+    /* 波蘭國旗 */
+.pl{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+.pl div{
+    width: 450px;
+    height: 150px;
+}
+.pl_u{background-color: #fff;
+
+}
+.pl_d{
+    background-color: #dc143c;
+}
+
+/* 比利時國旗*/
+.bel{
+    width: 450px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+.bel div{
+    width: 150px;
+    height: 300px;
+}
+.bel_1{
+    display: inline-block;
+    background-color:#000;
+}
+.bel_2{
+    display: inline-block;
+    background-color: #fdda25;
+}
+.bel_3{
+    display: inline-block;
+    background-color: #ef3340;
+}
+
+/* 1. 圖形 C：作為定位基準 */
+.container-c {
+  position: relative; /* 關鍵：讓內部的 absolute 元素以 C 為基準 */
+  width: 400px;
+  height: 400px;
+  background-color: #f0f0f0; /* 方便識別 C */
+}
+
+/* 2. 圖形 B：固定在 C 的右上角 */
+.box-b {
+  position: absolute; /* 脫離文檔流，相對於 C 定位 */
+  top: 0;             
+  right: 0;           /* 固定在 C 的右上角 */
+  width: 150px;
+  height: 150px;
+  background-color: #ffcccc; /* 方便識別 B */
+
+  /* 使用 Flexbox 將 A 完美固定在 B 的正中間 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3. 圖形 A：在 B 的中間 */
+.box-a {
+  width: 50px;
+  height: 50px;
+  background-color: #3333ff; /* 方便識別 A */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+</style>
+
+
+<body>
+    <div class="pl">
+        <div class="pl_u"></div>
+        <div class="pl_d"></div>
+    </div>
+    <div class="bel">
+        <div class="bel_1"></div><div class="bel_2"></div><div class="bel_3"></div>
+    </div>
+
+    <div class="container-c"> <!-- 圖形 C (大容器) -->
+    <div class="box-b">     <!-- 圖形 B (中容器) -->
+        <div class="box-a">A</div> <!-- 圖形 A (小圖形) -->
+    </div>
+    </div>
+
+</body>
+</html>
