@@ -1,0 +1,417 @@
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /* 以上是CSS Reset */
+        * {
+            font-family: "noto sans tc";
+        }
+
+        /* header */
+        header {
+            width: 100%;
+            /* height: 177px; */
+            background-color: #A81515;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 64px 0;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            /* letter-spacing: 200%; */
+            display: flex;
+            justify-content: space-between;
+            width: 160px;
+            height: 48px;
+            border-bottom: 4px solid #fff;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* step */
+        ul {
+            width: 428px;
+        }
+
+        li {
+            font-size: 40px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        li>p {
+            font-size: 20px;
+        }
+
+        .indicator-active {
+            width: 100px;
+            height: 22px;
+            border-radius: 22px;
+            background-color: #A81515;
+            opacity: 1;
+        }
+
+        .indicator {
+            width: 100px;
+            height: 22px;
+            border-radius: 22px;
+            background-color: #999999;
+        }
+
+        /* ordersummary */
+        .ordersum {
+            width: 60vw;
+            /* height: 200px; */
+            background-color: #ffa4a4;
+            font-size: 20px;
+            margin: 0 auto;
+            border-radius: 16px 16px 0 0;
+            padding: 36px 60px;
+        }
+
+        .itemChk {
+            /* width: 100%; */
+        }
+
+        .item {
+            width: 388px;
+        }
+
+        .equalHr {
+            width: 100%;
+            height: 6px;
+            border-bottom: 4px solid #000;
+            border-right: 4px solid #000;
+        }
+
+        /* form */
+        .formWrapper {
+            width: 60vw;
+            margin: 0 auto;
+        }
+
+        form * {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input,
+        select {
+            font-size: 20px;
+            width: 100%;
+            height: 2.5rem;
+            text-indent: 8px;
+            border-radius: 8px;
+            border: 2px solid #000;
+        }
+
+        input:hover,
+        select:hover {
+            box-shadow: 0px 0px 4px rgba(255, 41, 41, 0.8);
+        }
+
+        form label {
+            font-size: 20px;
+            color: #A81515;
+        }
+
+        button {
+            width: 190px;
+            height: 48px;
+            background-color: #761515;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: #CC3535;
+            transition: 0.6s;
+        }
+
+        button:active {
+            background-color: #3E0707;
+        }
+
+        /* footer */
+        footer {
+            width: 100%;
+            font-family: "noto sans tc";
+            font-size: 24px;
+            color: #fff;
+            background-color: #4a4a4a;
+            padding-top: 88px;
+            padding-bottom: 60px;
+        }
+
+        /* flex */
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flexDcol {
+            flex-direction: column;
+        }
+
+        .flexJcstart {
+            justify-content: flex-start;
+        }
+
+        .flexJcend {
+            justify-content: flex-end;
+        }
+
+        .flexJcsb {
+            justify-content: space-between;
+        }
+
+        .flexAistart {
+            align-items: flex-start;
+        }
+
+        .flexAiend {
+            align-items: flex-end;
+        }
+
+        .flexAsstart {
+            align-self: flex-end;
+        }
+
+        .f-grow-1 {
+            flex: 1;
+        }
+
+        .f-grow-2 {
+            flex: 2;
+        }
+
+        .f-grow-3 {
+            flex: 5;
+        }
+
+        .g8 {
+            gap: 8px;
+        }
+
+        .g12 {
+            gap: 12px;
+        }
+
+        .g40 {
+            gap: 40px;
+        }
+
+        .g56 {
+            gap: 56px;
+        }
+
+        /* margin */
+        .mb64 {
+            margin-bottom: 64px;
+        }
+
+        /* opacity */
+        .op5 {
+            opacity: 0.5;
+        }
+
+        /* width */
+        .w100 {
+            width: 100%;
+        }
+
+        /* responsive 響應式排版 */
+        @media(max-width: 768px) {
+            .g40 {
+                gap: 20px;
+            }
+
+            .itemChk>.item {
+                width: 70%;
+            }
+
+        }
+
+        @media(max-width: 576px) {
+
+            .formName,
+            .formAddres,
+            .itemChk {
+                flex-direction: column;
+            }
+
+            .itemPrice {
+                align-self: end;
+            }
+
+            .itemChk>.item {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .footer {
+                font-size: 16px;
+                padding-top: 56px;
+                padding-bottom: 40px;
+            }
+
+            .mb64 {
+                margin-bottom: 32px;
+            }
+
+            .g56 {
+                gap: 20px;
+            }
+
+            .g40 {
+                gap: 8px;
+            }
+
+        }

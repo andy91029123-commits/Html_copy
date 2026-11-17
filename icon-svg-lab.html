@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS 圖示與 SVG 向量動畫隨堂練習</title>
+
+  <!-- 1. 引入 Font Awesome 免費版 CDN (使用穩定廣泛的 6.7.2 版) -->
+  <link rel="stylesheet" href="https://cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --accent: #e11d48;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      padding: clamp(1.5rem, 4vw, 3rem) 1rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+    }
+
+    /* 響應式雙欄網格 */
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* =========================================
+       區塊一：Font Awesome 樣式與等寬對齊示範
+       ========================================= */
+    .menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: #f1f5f9;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    /* 滑鼠移過選單時，文字與 Font Awesome 圖示同步變色 */
+    .menu-item:hover {
+      background: #dbeafe;
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    /* 【隨堂練習任務 1】：
+       試著把下方 .menu-item i 的 font-size 改成 1.5rem，
+       並觀察 HTML 中 fa-fw (等寬屬性) 如何讓文字保持垂直對齊 */
+    .menu-item i {
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    .status-bar {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1rem;
+      background: #fef9c3;
+      color: #854d0e;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* =========================================
+       區塊二：內嵌 SVG + currentColor 變色動畫
+       ========================================= */
+    .svg-demo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+    }
+
+    /* 互動按鈕：利用 currentColor 讓 SVG 跟著父層一起變色 */
+    .svg-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 99px;
+      color: var(--text-main);
+      /* 預設文字與 SVG 顏色 */
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* 滑鼠懸停時，改變 color 即可同時改變文字與內部 SVG 顏色 */
+    .svg-action-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 6px 15px rgba(225, 29, 72, 0.15);
+    }
+
+    /* 控制內嵌 SVG 尺寸與變色過渡動畫 */
+    .heart-svg {
+      width: 28px;
+      height: 28px;
+      fill: transparent;
+      /* 預設內部透明（空心） */
+      stroke: currentColor;
+      /* 外框線條自動繼承按鈕的 color */
+      stroke-width: 2;
+      transition: fill 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* 【隨堂練習任務 2】：
+       當滑鼠移過按鈕時，讓愛心內部填滿顏色並放大 1.2 倍！
+       試著把下方的 scale(1.2) 改成 scale(1.5) 或加上 rotate(15deg) 看看效果 */
+    .svg-action-btn:hover .heart-svg {
+      fill: currentColor;
+      /* 滑鼠移過時，內部填滿繼承來的紅色 */
+      transform: scale(1.2);
+      /* 彈性放大動畫 */
+    }
+
+    /* =========================================
+       區塊三：SVG 線條描邊動畫 (Stroke Animation)
+       ========================================= */
+    .check-svg {
+      width: 64px;
+      height: 64px;
+      stroke: #10b981;
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* 利用 stroke-dasharray 與 stroke-dashoffset 製作手繪打勾動畫 */
+    .check-circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      animation: draw-line 1s ease forwards;
+    }
+
+    .check-mark {
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: draw-line 0.5s ease 0.8s forwards;
+      /* 延遲 0.8 秒等圓圈畫完再打勾 */
+    }
+
+    @keyframes draw-line {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <header>
+      <h1>CSS 圖示與 SVG 向量動畫隨堂練習</h1>
+      <p>將滑鼠移到下方的選單與按鈕上，觀察 Font Awesome 與內嵌 SVG 的互動效果</p>
+    </header>
+
+    <div class="lab-grid">
+
+      <!-- 卡片一：Font Awesome 實戰 -->
+      <section class="card">
+        <h2><i class="fa-solid fa-icons"></i> 1. Font Awesome 圖示庫</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          加上 <code>fa-fw</code> (Fixed Width) 類別後，即使圖示本身寬度不同（如手機與使用者），後方的文字依然能完美垂直對齊。
+        </p>
+
+        <nav class="menu-list">
+          <a href="#" class="menu-item">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>系統首頁總覽</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fa-solid fa-mobile-screen-button fa-fw"></i>
+            <span>行動裝置設定</span>
+          </a>
+          <a href="#" class="menu-item">
+            <i class="fa-brands fa-github fa-fw"></i>
+            <span>GitHub 專案庫</span>
+          </a>
+        </nav>
+
+        <!-- 內建旋轉動畫示範 -->
+        <div class="status-bar">
+          <i class="fa-solid fa-gear fa-spin"></i>
+          <span>使用 <code>fa-spin</code> 類別即可零 CSS 製作齒輪旋轉動畫</span>
+        </div>
+      </section>
+
+      <!-- 卡片二：內嵌 SVG 變色與線條動畫 -->
+      <section class="card">
+        <h2><i class="fa-solid fa-bezier-curve"></i> 2. 內嵌 SVG 向量互動</h2>
+
+        <div class="svg-demo-box">
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            透過 <code>fill: currentColor</code>，SVG 圖形會自動跟隨按鈕的文字顏色變化，滑鼠移過去試試看：
+          </p>
+
+          <!-- 互動愛心按鈕 -->
+          <button type="button" class="svg-action-btn">
+            <svg class="heart-svg" viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+            <span>收藏這份教材</span>
+          </button>
+
+          <hr style="width: 100%; border: none; border-top: 1px dashed var(--border); margin: 0.5rem 0;">
+
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>加碼技巧：</strong>利用 <code>stroke-dashoffset</code> 製作純 CSS 路徑描邊動畫（重新整理網頁可重播）：
+          </p>
+
+          <!-- 純 CSS 描邊動畫打勾 SVG -->
+          <svg class="check-svg" viewBox="0 0 52 52">
+            <circle class="check-circle" cx="26" cy="26" r="24" />
+            <path class="check-mark" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+          </svg>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
